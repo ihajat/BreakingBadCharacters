@@ -69,9 +69,9 @@ Presentation
 Instrumentation Tests
 
 MainActivity
-1. recyclerview comes into view
-2. select item, right data in view
-3. select item, select back, back to recyclerview
+1. Test #1 : testing recyclerview comes into view
+2. Test #2 : testing select item, right data in view
+3. Test #3 : testing select item, select back, recyclerview comes back into view
 
 DetailedActivity
 1. Test for correct display of Name
@@ -97,11 +97,17 @@ TODO:
 3. Uses ktlintFormat. See https://github.com/shyiko/ktlint for more information, but, to summarise, fix all style violations automatically by running a gradle task; so , you get a lot of formatting within minutes.
 4. Demonstrate the use of several adapter-free libraries, open-source, out there, that will a) eliminate the need for an recycler adapter file b) get Rx to work with the Adapters. So, changes to checkboxes and searchViewes/editboxes will trigger automatic updates to the content of the recyclerview. For example, there are FastAdapter, LastAdapter, these two adapters offer multiple features. I have used LastAdapter before to easily refresh dynamic lists; as it uses an ObservableList, to achieve that. Here, because the data is static, but our filtering is dynamic, so we could either use the LaStAdapter with rxBinding, or, use another library called: RxRecyclerAdapter.
 5. The UI uses checkboxes, as it allows for better UI experience than, for example, using TWO searchViews, one for the name, and the other for the season. Also,  the searchViews were NOT designed to have TWO or more in a single Activity. The complexity would NOT be recommended , eg you would need to add complex code to keep the UI simple, eg hiding and showing the search Icons, as well as, programmatically calling the hint , to differentiate what the search context was. However, we could use Material Design, to make the checkboxes more 'attractive', as the standard ones look quite unappealing. 
-6. Maybe Introduce you to a Google classic Design Pattern/Generic class, called, NetworkBoundResource. It's quite popular, and it provides a source of all truth , where we should acquire our data from , cache or network. It is a generic class, so, it will be the base class for all of OUR data that is retrieved from the network and stored locally in cache.   NetworkBoundResource is an abstract class, hence when you create object of it you’ll need to override the following methods
+6. Write some tests for the Caching ( Room ), since they are suspend functions, we can use runBlockingTest, as we have done with the other unit tests.
+7. Maybe Introduce you to a Google classic Design Pattern/Generic class, called, NetworkBoundResource. It's quite popular, and it provides a source of all truth , where we should acquire our data from , cache or network. It is a generic class, so, it will be the base class for all of OUR data that is retrieved from the network and stored locally in cache.   NetworkBoundResource is an abstract class, hence when you create object of it you’ll need to override the following methods:
+
 loadFromDb() — Contains the logic to get data from database (Like Room)
+
 createCall() — Contains the logic to get data from web-service
+
 saveCallResult() — Here we save the data fetched from web-service
+
 processResult() — To map the data between the result and request.
+
 I have used it before, both in Java and Kotlin. Look at , the repo: https://github.com/ihajat/albums, for an example usage of it.
 
 
