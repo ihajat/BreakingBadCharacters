@@ -33,7 +33,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideBlogServiceAPI(retrofit: Retrofit.Builder): BreakingBadCharacterServiceAPI {
+    fun provideCharacterServiceAPI(retrofit: Retrofit.Builder): BreakingBadCharacterServiceAPI {
         return retrofit
             .build()
             .create(BreakingBadCharacterServiceAPI::class.java)

@@ -18,8 +18,6 @@
             android:layout_margin="0dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/walterwhite" />
 
@@ -31,8 +29,6 @@
             android:layout_marginTop="@dimen/margin_top"
             android:textColor="@android:color/black"
             android:textSize="@dimen/medium_size_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bbccharacter_image"
             tools:text="name" />
 
@@ -42,8 +38,6 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="@dimen/medium_size_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bbccharacter_name"
             tools:text="occupation" />
 
@@ -53,8 +47,6 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="@dimen/medium_size_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bbccharacter_occupation"
             tools:text="status" />
 
@@ -64,8 +56,6 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="@dimen/medium_size_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bbccharacter_status"
             tools:text="nickname" />
 
@@ -75,8 +65,6 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="@dimen/medium_size_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bbccharacter_nickname"
             tools:text="season appearance" />
     </androidx.constraintlayout.widget.ConstraintLayout>

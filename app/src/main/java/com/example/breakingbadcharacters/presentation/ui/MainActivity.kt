@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView()
         subscribeObserver()
         updateSummary()
-        viewModel.setStateEvent((MainStateEvent.Blogs))
+        viewModel.setStateEvent((MainStateEvent.Chaacters))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
