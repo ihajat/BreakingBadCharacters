@@ -20,29 +20,29 @@ import kotlin.time.ExperimentalTime
 
 class MainRepositoryTest : TestCase() {
 
-    val blogDao = mock<CharacterDao>()
+    val characterDao = mock<CharacterDao>()
     val api = mock<BreakingBadCharacterServiceAPI>()
     val cacheMapper = CacheMapper()
     val networkMapper = NetworkMapper()
 
     @ExperimentalTime
     @Test
-    fun `test repo gets list of blogs`() = runBlockingTest {
+    fun `test repo gets list of characters`() = runBlockingTest {
         val characterDto = CharacterDto(
             1, "fred", "26/01/2000", listOf("programmer"),
             "na", "married", "big Johnny", listOf(1, 2, 3, 4, 5), "goodie", "yes", listOf("")
         )
         val characterEntity = CharacterEntity(1, "fred", "26/01/2000", listOf("programmer"),
             "na","married","big Johnny",listOf(1,2,3,4,5),"goodie","yes", listOf(""))
-        val blogDtos = listOf(characterDto)
-        val cachedBlogs = listOf(characterEntity)
+        val characterDtos = listOf(characterDto)
+        val cachedCharacters = listOf(characterEntity)
 
-        val repo = MainRepository(blogDao, api, cacheMapper, networkMapper)
-        whenever(api.get()) doReturn blogDtos
-        whenever(blogDao.getAll()) doReturn cachedBlogs
+        val repo = MainRepository(characterDao, api, cacheMapper, networkMapper)
+        whenever(api.get()) doReturn characterDtos
+        whenever(characterDao.getAll()) doReturn cachedCharacters
 
         val loading = MainDataState.Loading
-        val data = MainDataState.Success(cacheMapper.mapFromEntityList(cachedBlogs))
+        val data = MainDataState.Success(cacheMapper.mapFromEntityList(cachedCharacters))
 
         val characters = repo.getCharacters().toList()
         assertEquals(loading, characters.get(0))
@@ -54,7 +54,7 @@ class MainRepositoryTest : TestCase() {
     @Test
     fun `test repo error state on api error`() = runBlockingTest {
 
-        val repo = MainRepository(blogDao, api, cacheMapper, networkMapper)
+        val repo = MainRepository(characterDao, api, cacheMapper, networkMapper)
         given(api.get()).willAnswer { throw Exception() }
         val loading = MainDataState.Loading
         val characters = repo.getCharacters().toList()

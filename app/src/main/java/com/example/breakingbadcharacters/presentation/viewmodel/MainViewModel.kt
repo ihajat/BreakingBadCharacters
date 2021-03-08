@@ -21,7 +21,7 @@ constructor(
     fun setStateEvent(mainStateEvent: MainStateEvent){
         viewModelScope.launch {
             when(mainStateEvent){
-                is MainStateEvent.Blogs -> {
+                is MainStateEvent.Chaacters -> {
                     mainRepository.getCharacters()
                         .onEach {
                             _state.value = it
@@ -37,6 +37,6 @@ constructor(
 
 }
 sealed class MainStateEvent{
-    object Blogs: MainStateEvent()
+    object Chaacters: MainStateEvent()
     object None: MainStateEvent()
 }
