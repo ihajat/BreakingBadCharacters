@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BB Characters</string>
+    <string name="main_activity_list_size_text">Showing List Size:</string>
+    <string name="detailed_activity_name">Name: </string>
+    <string name="detailed_activity_nickname">Nickname: </string>
+    <string name="detailed_activity_Occupation">Occupation: </string>
+    <string name="detailed_activity_Status">Status: </string>
+    <string name="detailed_activity_Season_Appearance">Season Appearance: </string>
+    <string name="season_1">Season 1</string>
+    <string name="season_2">Season 2</string>
+    <string name="season_3">Season 3</string>
+    <string name="season_4">Season 4</string>
+    <string name="season_5">Season 5</string>
+    <string name="search">Search</string>
+</resources>

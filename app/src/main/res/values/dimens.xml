@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="universal_padding">20dp</dimen>
+    <dimen name="detailed_universal_padding">30dp</dimen>
+    <dimen name="margin_top">30dp</dimen>
+    <dimen name="cardCornerRadius">10dp</dimen>
+    <dimen name="cardElevation">30dp</dimen>
+    <dimen name="item_image_height">200dp</dimen>
+    <dimen name="item_image_width_max">200dp</dimen>
+    <dimen name="item_margin_textview_end">20dp</dimen>
+    <dimen name="medium_size_font">20dp</dimen>
+</resources>
