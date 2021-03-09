@@ -99,4 +99,29 @@ class CharacterDaoTest {
 
         assertThat(characterDao?.getAll()).isEmpty()
     }
+
+    /*
+    Test 5: Test insert TWO identical CharacterEntity objects,
+    ensure the correct object is inserted
+
+    if an exception is thrown the test will automatically fail.
+    altneratively, we can use assertDoesNotThrow from JUnit5
+     */
+    @ExperimentalTime
+    @Test
+    fun doubleInsertTest() = runBlockingTest {
+        val characterEntity = CharacterEntity(
+            1, "fred", "26/01/2000", listOf("programmer"),
+            "na", "married", "big Johnny", listOf(1, 2, 3, 4, 5), "goodie", "yes", listOf("")
+        )
+        // Insert two identical objects
+
+        characterDao.insert(characterEntity)
+        characterDao.insert(characterEntity)
+
+        val allCharacters = characterDao.getAll()
+
+        assertThat(allCharacters).contains(characterEntity)
+        assertThat(characterDao?.getAll()).containsNoDuplicates()
+    }
 }
