@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class CharacterEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
-    var char_id: Int,
+    val char_id: Int,
 
     @ColumnInfo(name = "name")
     var name: String,
@@ -17,27 +17,27 @@ data class CharacterEntity(
     var birthday: String,
 
     @ColumnInfo(name = "occupation")
-    val occupation: List<String>,
+    var occupation: List<String>,
 
     @ColumnInfo(name = "img")
-    val img: String,
+    var img: String,
 
     @ColumnInfo(name = "status")
-    val status: String,
+    var status: String,
 
     @ColumnInfo(name = "nickname")
-    val nickname: String,
+    var nickname: String,
 
     @ColumnInfo(name = "appearance")
-    val appearance: List<Int>,
+    var appearance: List<Int>,
 
     @ColumnInfo(name = "portrayed")
-    val portrayed: String,
+    var portrayed: String,
 
     @ColumnInfo(name = "category")
-    val category: String,
+    var category: String,
 
     @ColumnInfo(name = "better_call_saul_appearance")
-    val better_call_saul_appearance: List<String>
+    var better_call_saul_appearance: List<String>
 
 )
