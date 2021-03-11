@@ -46,6 +46,11 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>(), Filterable {
         }
     }
 
+    fun isSearchTextAndInSeasonFilter(item: BBCharacter):Boolean {
+        return item.name.toLowerCase()
+            .contains(lowerCaseSearcString) && isSeason(item)
+    }
+
     fun setData(items: List<BBCharacter>) {
         this.items = items
         this.itemsAll = items
@@ -85,7 +90,7 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>(), Filterable {
         var searchableList: MutableList<BBCharacter> = arrayListOf()
 
         for (item in itemsAll) {
-            if (item.name.toLowerCase().contains(lowerCaseSearcString) && isSeason(item)) {
+            if (isSearchTextAndInSeasonFilter(item)) {
                 searchableList.add(item)
             }
         }
@@ -110,8 +115,7 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>(), Filterable {
                     }
                 } else {
                     for (item in itemsAll) {
-                        if (item.name.toLowerCase()
-                                .contains(lowerCaseSearcString) && isSeason(item)
+                        if ( isSearchTextAndInSeasonFilter(item)
                         ) {
                             searchableList.add(item)
                         }
